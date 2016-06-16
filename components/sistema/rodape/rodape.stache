@@ -1,0 +1,11 @@
+<style>
+.rodape-fins{
+  height: 80px;
+  background-color: #04742a;
+  width: 100%;
+  margin-bottom: -12px;
+}
+</style>
+<div class="rodape-fins">
+  {{message}}
+</div>

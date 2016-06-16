@@ -1,0 +1,104 @@
+<style>
+    .alerta{
+        position: absolute;
+        z-index: 10001;
+        left:0px;
+        top:0px;
+        width: 100%;
+        height: 100%;
+    }
+    .alerta-bg{
+        background-color: rgba(255,255,255,0.9);
+        width: 100%;
+        height: 100%;
+    }
+    .alerta-ct{
+        width: {{width}}px;
+        min-height: {{height}}px;
+        border:1px solid #000;
+        background-color: #fff;
+        z-index: 10002;
+        position: absolute;
+        top:{{top}}px;
+        left:{{left}}px;
+
+        {{#switch tipo}}
+            {{#case "danger"}}
+                border:2px solid #F25D5D;
+            {{/case}}
+        {{/switch}}
+    }
+    .alerta-ct .content{
+        padding: 10px;
+        margin-bottom:40px; 
+    }
+    .alerta-ct .barra-superior{
+        width: 100%;
+        height: 30px;
+        background-color: #f6f6f6;
+        {{#switch tipo}}
+            {{#case "danger"}}
+                background-color: #F25D5D;
+                color:#fff;
+            {{/case}}
+        {{/switch}}
+    }
+    .alerta-ct .barra-superior .botao{
+        padding:5px;
+        width: 30px;
+        text-align: center;
+        float:right;
+    }
+    .alerta-ct .barra-superior .title{
+        padding:5px;
+        text-align: center;
+        float:left;
+        font-weight: bold;
+    }
+    .alerta-ct .barra-superior .botao:hover{
+        background-color:#EDEDED;
+        cursor:pointer;
+        {{#switch tipo}}
+            {{#case "danger"}}
+                background:#D23F3F;
+            {{/case}}
+        {{/switch}}
+        
+    }
+    .alerta-ct .buttons{
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    .alerta-ct .buttons .btn{
+        border-radius: 0px;
+        -webkit-border-radius:0px;
+        -moz-border-radius:0px;
+    }
+    </style>
+    <div class="alerta" id="{{id}}">
+        <div class="alerta-bg">
+            <div class="alerta-ct">
+                <div class="barra-superior">
+                    <div class="title">{{titulo}}</div>
+                    <div class="botao" ($click)="fechar(@event)"><i class="fa fa-times"></i></div>
+                </div>
+                <div class="content">
+                {{conteudo}}
+                </div>
+                <div class="buttons">
+                    <div class="btn-group">
+                        <div class="btn btn-xs btn-success">
+                            {{aceitar}}
+                        </div>
+                        <div class="btn btn-xs btn-danger">
+                            {{cancelar}}
+                        </div>
+                        <div ($click)="fechar(@event)" class="btn btn-xs btn-default">
+                            {{ok}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

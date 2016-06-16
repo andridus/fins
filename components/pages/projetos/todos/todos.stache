@@ -1,0 +1,219 @@
+<style>
+.temas{
+	font-size: 20px;
+	padding:5px;
+	background-color: #ca2425;
+	color:#fff;
+	width: 60px;
+	text-align: center;
+	margin-left: 5px;
+	border: 1px solid #A3090A;
+	border-top: 0px solid #A3090A;
+	border-radius:0px 0px 5px 5px;
+    -webkit-border-radius:0px 0px 5px 5px;
+    -moz-border-radius:0px 0px 5px 5px;
+}
+.proj-todos-bg {
+  background:  #B2C5B8;
+  border-top: 5px solid #04742a;
+  border-bottom: 5px solid #04742a;
+  margin-top:-25px;
+  height: 100%;
+}
+.lista-projetos {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+
+}
+.lista-projetos > .item {
+  float: left;
+  margin: 5px;
+  text-align: center;
+  width: 280px;
+  border: 2px solid #000;
+  background-color:#fff;
+  height: 376px;
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+}
+.lista-projetos > .item  > .barra_superior{
+ 
+  background-color:#EFE8E8;
+  margin-bottom: 5px;
+  position: relative;
+  padding:5px;
+  
+}
+.lista-projetos > .item  > .barra_superior .titulo {
+  font-size: 12px;
+  font-weight: bold;
+}
+.lista-projetos > .item  > .barra_superior .botoes{
+  position: absolute;
+  margin-bottom: 5px;
+  top:0px;
+  right:0px;
+  
+}
+.lista-projetos > .item  > .barra_superior > .botoes > .btn{
+  color:#000;
+  
+}
+
+.lista-projetos > .item .proponente {
+  font-size: 10px;
+}
+.lista-projetos > .item .breve_descricao {
+  padding: 5px;
+  font-size: 12px;
+  text-align: left;
+  clear: both;
+  height: 120px;
+}
+.lista-projetos > .item .opcoes .opcoes-lista {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.lista-projetos > .item .opcoes .opcoes-lista > .item {
+  float: left;
+  width: 92px;
+  background-color: #fcfcfc;
+}
+.lista-projetos > .item .opcoes .opcoes-lista > .item > a {
+  display: block;
+  color: #000;
+  padding: 5px;
+}
+.lista-projetos > .item .opcoes .opcoes-lista > .item > a .titulo {
+  font-weight: bold;
+  font-size: 12px;
+}
+.lista-projetos > .item .opcoes .opcoes-lista > .item > a .titulo > small {
+  font-size: 10px;
+  font-weight: normal;
+}
+.lista-projetos > .item .opcoes .opcoes-lista > .item > a .numero {
+  font-size: 17px;
+  margin-bottom: -2px;
+}
+.lista-projetos > .item .opcoes .opcoes-lista > .item > a:hover {
+  background-color: #ccc;
+  text-decoration: none;
+}
+.lista-projetos > .item .opcoes .opcoes-lista > .item:first-child {
+  float: none;
+  width: 100%;
+  background-color: rgba(238, 28, 36, 0.8);
+}
+.lista-projetos > .item .opcoes .opcoes-lista > .item:first-child > a {
+  color: #fff;
+}
+
+</style>
+<div class="proj-todos-bg">
+<div class="container-fluid">
+	<!--<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<div class="temas"> <i class="fa fa-star"></i></div>
+
+		</div>
+	</div> -->
+	<div class="row " >
+		<div class="col-md-12 col-sm-12">
+				{{^if projetos}}
+		          Sem Projetos
+		        {{/if}}
+		        {{#if projetos}}
+					<ul class="lista-projetos">
+						{{#projetos}}
+							<li class="item">
+								<div class="barra_superior">
+									<div class="titulo">
+									{{titulo}}
+									</div>
+									<div class="botoes">
+										<div class="btn btn-link btn-xs" ($click)="star"><i class="fa fa-star"></i></div>
+									</div>
+								</div>
+								
+								<div class="imagem">
+									<img src="{{imagem}}"/>
+								</div>
+								
+								<div class="proponente">
+									{{proponente}}
+								</div>
+								<div class="breve_descricao">
+									{{breve_descricao}}
+								</div>
+								<div class="opcoes">
+									<ul class="opcoes-lista">
+										<li class="item">
+											<a href="javascript://" ($click)="abrir_projeto(id)">
+												<div class="titulo">
+													Acompanhar projeto
+												</div></a>
+										</li>
+										<li class="item">
+											<a href="#">
+											<div class="numero">
+												{{#if pessoas_beneficiadas}}
+													{{pessoas_beneficiadas}}
+												{{else}}
+												 0
+												{{/if}}
+											</div>
+											<div class="titulo">
+												<small>Pessoas</small><br />
+												beneficiadas
+											</div>
+											
+											</a>
+										</li>
+										<li class="item">
+											<a href="#">
+											<div class="numero">
+												{{#if dias_atividade}}
+													{{dias_atividade}}
+												{{else}}
+												 0
+												{{/if}}
+											</div>
+											<div class="titulo">
+												<small>Dias de</small><br />
+												atividade
+											</div>
+											
+											</a>
+										</li>
+										<li class="item">
+											<a href="#">
+											<div class="numero">
+												{{#if usuarios.acompanham}}
+													{{usuarios.acompanham}}
+												{{else}}
+												 0
+												{{/if}}
+											</div>
+											<div class="titulo">
+												<small>Usuários que</small><br />
+												acompanham
+											</div>
+											
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							{{/projetos}}
+					</ul>
+				{{/if}}
+			
+		</div>
+		
+	</div>
+</div>
+</div>

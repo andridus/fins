@@ -1,0 +1,204 @@
+<style>
+.tag-projeto {
+  color: #f6f6f6;
+  background-color: #04742a;
+  padding: 5px 10px;
+  width: 100%;
+  
+}
+.projeto-bg {
+  background:  #9DADA2;
+  border-top: 5px solid #04742a;
+  border-bottom: 5px solid #04742a;
+  margin-top:-25px;
+}
+.projeto-info {
+  border-left: 2px solid #04742a;
+  border-right: 2px solid #04742a;
+  padding: 10px;
+  background-color: #fff;
+  padding-top: 10px;
+  font-size: 12px;
+  position: relative;
+
+}
+.projeto-info .responsaveis {
+  width: 200px;
+  margin-left: 15px;
+  font-size: 12px;
+}
+.projeto-info .localizacao {
+  width: 200px;
+  margin-left: 15px;
+  font-size: 12px;
+}
+.projeto-info .titulo {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.projeto-info .breve_descricao {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+.projeto-info .botoes {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 5px;
+  padding-left:15px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.projeto-info .btn-proj{
+	border-radius: 0px;
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	padding: 5px;
+	min-width: 70px;
+
+}
+.projeto-info .btn-proj:hover{
+	border: 1px solid #04742a;
+	background-color: #04742a;
+	color:#fff;
+}
+.projeto-info .btn-proj:last-child:hover{
+	border: 1px solid #C3052A;
+	background-color: #C3052A;
+	color:#fff;
+}
+.projeto-info .table {
+  margin-top: 0px;
+  font-family: monospace;
+  font-size: 14px;
+  border-color: #333
+}
+.projeto-info .table th {
+  background-color: rgba(176, 151, 21, 0.5);
+  border-color: #333;
+  text-align: center;
+  border-bottom:0px;
+}
+.projeto-info .table td {
+  border-color: #333;
+  text-align: center;
+}
+.sub-menu {
+  padding: 0px;
+  list-style: none;
+  left: 280px;
+  top: -20px;
+}
+.sub-menu > li {
+  float: left;
+  display: block;
+  padding: 10px;
+  padding-top: 15px;
+  background-color: transparent;
+}
+.sub-menu > li:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #009cde;
+}
+</style>
+{{#projeto}}
+<div class="projeto-bg">
+	<div class="container-fluid">
+		<div class="tag-projeto">{{titulo}}</div>
+		<div class="projeto-info" >
+			<div class="botoes">
+				<div class="btn btn-xs btn-proj">
+					<b>50</b>
+					<small>dias de</small><br />
+					atividade
+				</div>
+				<div class="btn btn-xs  btn-proj">
+					<b>108</b><br />
+					acompanham
+				</div>
+				<div class="btn btn-xs  btn-proj">
+				<b>23</b>
+					<small>pessoas</small><br />
+					beneficiadas
+				</div>
+				<div class="btn btn-xs  btn-proj"><i class="fa fa-money"></i><br />Doar</div>
+				<div class="btn btn-xs  btn-proj">Acompanhar <br />o projeto</div>
+				</div>
+			<div class="row">
+				<div class="col-sm-2 col-md-2 col-lg-1">
+					<img src="{{imagem}}" class="thumbnail"/><br />
+					
+				</div>
+				<div class="col-sm-7 col-md-7 col-lg-9">
+					<div class="responsaveis" >
+						<div class="titulo">Responsáveis pelo projeto</div>
+						Fulano<br />
+						Sicrano
+					</div>
+					<div class="localizacao">
+						<div class="titulo">Onde</div>
+						Local Tal
+					</div>
+					<div class="breve_descricao">
+						<div class="titulo">Descrição:</div>
+						{{breve_descricao}}
+					</div>
+					
+					
+					
+				</div>
+				<div class="col-sm-3 col-md-3 col-lg-2">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th >
+									Resumo Financeiro
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><small>Necessários</small><br /> R$: 3.000,00</td>
+							</tr>
+							<tr>
+								<td><small>Gastos</small><br /> R$: 2.000,00</td>
+							</tr>
+							<tr>
+								<td><small>Disponíveis em conta</small><br /> R$: 500,00</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					
+				</div>
+			</div>
+			
+
+			
+			
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<ul class="sub-menu">
+		<li>Linha do Tempo</li>
+		<li>Fotos e Vídeos</li>
+		<li>Informações</li>
+		<li>Atividades</li>
+		<li>Financeiro</li>
+		<li>Espaço Aberto</li>
+	</ul>
+	<div class="detahes">
+
+	</div>
+</div>
+{{/projeto.value}}
+

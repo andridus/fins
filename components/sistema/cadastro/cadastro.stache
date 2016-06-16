@@ -1,0 +1,70 @@
+<div class="container-fluid">
+<h2>Cadastro de Usuário</h2>
+<br />
+<form ($submit)="cadastrar(%event,.)" class="form-horizontal">
+  <div class="form-group">
+      <label for="inputUsuario" class="control-label col-xs-3">Usuário</label>
+      <div class="col-xs-9">
+          <input id="inputUsuario" type="text" class="form-control" {($value)}="usuario.usuario" placeholder="Nome de Usuário"
+         ($blur)='verifica("usuario",usuario.usuario)'>
+        
+        {{^if usuario.usuario_ok}}
+          <small>Dica: Escolha um nome de <b>usuário</b> com, pelo menos, 6 caracteres e sem espaços</small><br />
+        {{else}}
+          <div class="label label-success">Esse nome está ótimo <i class="fa fa-thumbs-up"></i></div>
+        {{/if}}
+        {{#if usuario.usuario_existe}}
+          <div class="label label-danger">Já existe um <b>usuário</b> com esse nome!</div>
+        {{/if}}
+      </div>
+      
+  </div>
+  <div class="form-group">
+      <label for="inputEmail" class="control-label col-xs-3">Email</label>
+      <div class="col-xs-9">
+          <input id="inputEmail" type="email" class="form-control" {($value)}="usuario.email" placeholder="Endereço de Email"
+          ($blur)='verifica("email",usuario.email)'>
+          
+          {{^if usuario.email_ok}}
+          <small>Dica: O campo <b>email</b> deve ter um e-mail válido</small><br />
+          {{else}}
+            <div class="label label-success">Esse email está ótimo <i class="fa fa-thumbs-up"></i></div>
+          {{/if}}
+          {{#if usuario.email_existe}}
+            <div class="label label-danger">Já existe um endereço de <b>email</b> igual a esse em nossos registros!</div>
+          {{/if}}
+
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="inputSenha" class="control-label col-xs-3">Senha</label>
+      <div class="col-xs-9">
+          <input id="inputSenha" type="password" class="form-control" {($value)}="usuario.senha" placeholder="Senha Secreta"
+          ($blur)='verifica("senha",usuario.senha)'>
+          {{^if usuario.senha_ok}}
+            <small>Dica: É necessário ter uma <b>senha</b> de pelo menos 8 caracteres</small>
+          {{else}}
+          <div class="label label-success">Esta senha está ótima <i class="fa fa-thumbs-up"></i></div>
+        {{/if}}
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="inputRepetirSenha" class="control-label col-xs-3">Repetir Senha</label>
+      <div class="col-xs-9">
+          <input id="inputRepetirSenha" type="password" class="form-control" {($value)}="usuario.re_senha" placeholder="Senha Secreta"
+          ($blur)='verifica("re_senha",usuario.re_senha)'>
+          {{^if usuario.re_senha_ok}}
+            <small>Dica: Repita a mesma <b>senha</b> colocada no campo anterior</small>
+          {{else}}
+          <div class="label label-success">As senhas estão iguais. Perfeito! <i class="fa fa-thumbs-up"></i></div>
+        {{/if}}
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <div class="col-xs-offset-3 col-xs-9">
+          <button type="submit" class="btn btn-primary">Fazer meu cadastro</button>
+      </div>
+  </div>
+</form>
+</div>
